@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>COGS3 | JS Homework</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	
+	<body>
+	  <div id="wrapper">
+      
+      <!-- THIS H1 ELEMENT SHOULD NOT BE CHANGED DIRECTLY. 
+            YOU MAY ONLY CHANGE THE INNERHTML OF THIS 
+            ELEMENT USING JAVASCRIPT -->
+      <div id="counter-wrapper">      
+    	  <h1 id="counter">0</h1>
+      </div>
+  	  
+  	  
+      <!-- WRAPPER FOR OUR INCR AND DECR BUTTONS -->
+  	  <section id="buttons">
+  	  
+        <!-- CLICKING THIS BUTTON SHOULD DECREASE THE NUMBER 
+              IN THE COUNTER H1 TAG BY 1. NOTE THAT IF YOU 
+              TRY TO DECREASE BELOW 0,A POPUP SHOULD WARN 
+              THAT THE USER CANNOT DO THIS. -->
+        <div id="left">
+          <button id="decr" class="btn" onClick="decr()">Decrease</button>
+        </div>
+      
+        <!-- CLICKING THE INCREASE BUTTON SHOULD INCREMENT 
+        THE COUNTER BY ONE. THERE IS NO LIMIT ON THIS NUMBER; 
+        IT CAN INCREASE FOREVER. -->
+    	  <div id="right">
+          <button id="incr" class="btn" onClick="incr()">Increase</button>
+        </div>
+    	  
+      </section>
+      
+      <!-- CLICKING THIS BUTTON DISPLAYS A MESSAGE THAT CONTAINS 
+        THE NAME THE USER INPUTS IN THE TEXT BOX. -->
+      <div id="message-wrapper">
+        <button id="msg" class="btn btn-primary" onClick="dispMessage()">Display message</button>
+      </div>
+      <!-- MESSAGE TEXT SHOULD BE DISPLAYED IN THE PARAGRAPH BELOW. -->
+      <p id="msgText"></p>
+	  
+      <p>George Boole was a crucial figure in the history of computing. He was the inventor of Boolean Logic, which is the logic computers use for logic gates and calculations. He essentially made the claim that logic should be mathematic, rather than based on philosophy, and developed a whole branch of logic based on the values true or false. Additionally, he contributed several monumental papers about linear transformations and algebra. Me and George Boole have a pretty significant amount in common considering that we are both males who love to program, I am a math major and he was a mathmatician, and we both appreciate the invention that is boolean logic! We also both learned much of the math we know on our own, outside of school instruction. </p> <img src="boole.JPG" style="width:300px;height:300px" alt="Silhouette">
+
+    </div>
+
+	</body>
+	<script src="scripts.js"></script>
+</html>
