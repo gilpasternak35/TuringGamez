@@ -52,3 +52,6 @@ function dispMessage() {
   
   msgText.innerHTML = "Hello " + name + ", I am Alan Turing!";
 }
+
+function visitPage(){
+        window.location='http://www.google.com';

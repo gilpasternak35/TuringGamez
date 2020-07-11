@@ -7,16 +7,16 @@
 
     <!-- This is the importation of bootstrap for design purposes -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
 	</head>
 	
 	<body>
 	  <div id="wrapper">
       <p id="msgText"></p>
     
-      <h1 style = 'color:white; text-align:center'>Welcome to TuringGamez! </h1> 
+      <h1>Welcome to TuringGamez! </h1> 
       <img src="Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
       <br>
       <p style = 'color:white; text-align:center'>The MiniGame set that puts your knowledge of the English languages up to the test</p>
@@ -27,19 +27,23 @@
       <br>
       <!-- Menu options -->
         <div id="message-wrapper">
-        <button id="msg" class="btn btn-primary" onClick="dispMessage()">Mad Libs</button>
+          <a href = "MadLibs_Submenu.html">
+        <button id="msg" class="btn btn-primary">Mad Libs</button> </a> 
+      </div> 
+      <br>
+        <div id="message-wrapper">
+          <a href = "GuessText_Submenu.html">
+        <button id="msg" class="btn btn-primary">Guess the Text</button> </a>
       </div>
       <br>
         <div id="message-wrapper">
-        <button id="msg" class="btn btn-primary" onClick="dispMessage()">Guess the Text</button>
+          <a href = "WikipediaText.html">
+        <button id="msg" class="btn btn-primary">What Wikipedia Article is This?</button> </a>
       </div>
       <br>
         <div id="message-wrapper">
-        <button id="msg" class="btn btn-primary" onClick="dispMessage()">What Wikipedia Article is This?</button>
-      </div>
-      <br>
-        <div id="message-wrapper">
-        <button id="msg" class="btn btn-primary" onClick="dispMessage()">How well do you know your favorite song?</button>
+          <a href = "FavoriteSong.html">
+        <button id="msg" class="btn btn-primary">How well do you know your favorite song?</button> </a>
       </div>
       <!-- THIS H1 ELEMENT SHOULD NOT BE CHANGED DIRECTLY. 
             YOU MAY ONLY CHANGE THE INNERHTML OF THIS 

@@ -8,6 +8,12 @@ body {
   width: 100%;
 }
 
+h1
+{
+  color:white;
+  text-align:center;
+}
+
 img {
   display: block;
   margin-left: auto;
@@ -19,6 +25,7 @@ p {
   text-align: center;
   font-family: Arial;
   font-size: 18px;
+  color: white;
 }
 h2
 {
