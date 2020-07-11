@@ -20,6 +20,11 @@ p {
   font-family: Arial;
   font-size: 18px;
 }
+h2
+{
+  text-align:center;
+  color: blue;
+}
 
 #counter-wrapper {
   width: 100%;
@@ -72,3 +77,16 @@ p {
   font-family: Arial;
   font-size: 24px;
 }
+
+.btn-vert {
+  background-color: tomato;
+  float: center;
+  color: white;
+  width: 150%;
+  margin:0 auto;
+  height: 50px;
+  font-family: Arial;
+  font-size: 18px;
+}
+
+

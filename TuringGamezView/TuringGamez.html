@@ -2,13 +2,34 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>COGS3 | JS Homework</title>
+		<title>TuringGamez</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- This is the importation of bootstrap for design purposes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	</head>
 	
 	<body>
 	  <div id="wrapper">
-      
+      <p id="msgText"></p>
+    
+      <p>Explanation text: Welcome to TuringGamez! </p> 
+
+      <img src="Turing.JPG" style="width:300px;height:300px" alt="Silhouette">
+
+
+      <h2> Main Menu: </h2>
+      <!-- Menu options -->
+<div class = "text-center">
+      <div id  = "vertbuttons" class="btn-group-vertical">
+        <button type="button" class="btn-vert" >Option 1</button>
+        <button type="button" class="btn-vert">Option 2</button>
+        <button type="button" class="btn-vert">Option 3</button>
+      </div>
+  </div>
       <!-- THIS H1 ELEMENT SHOULD NOT BE CHANGED DIRECTLY. 
             YOU MAY ONLY CHANGE THE INNERHTML OF THIS 
             ELEMENT USING JAVASCRIPT -->
@@ -43,10 +64,6 @@
         <button id="msg" class="btn btn-primary" onClick="dispMessage()">Display message</button>
       </div>
       <!-- MESSAGE TEXT SHOULD BE DISPLAYED IN THE PARAGRAPH BELOW. -->
-      <p id="msgText"></p>
-	  
-      <p>George Boole was a crucial figure in the history of computing. He was the inventor of Boolean Logic, which is the logic computers use for logic gates and calculations. He essentially made the claim that logic should be mathematic, rather than based on philosophy, and developed a whole branch of logic based on the values true or false. Additionally, he contributed several monumental papers about linear transformations and algebra. Me and George Boole have a pretty significant amount in common considering that we are both males who love to program, I am a math major and he was a mathmatician, and we both appreciate the invention that is boolean logic! We also both learned much of the math we know on our own, outside of school instruction. </p> <img src="boole.JPG" style="width:300px;height:300px" alt="Silhouette">
-
     </div>
 
 	</body>

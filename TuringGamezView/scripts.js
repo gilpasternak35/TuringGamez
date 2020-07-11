@@ -40,10 +40,10 @@ let myImage = document.querySelector('img');
 
 myImage.onclick = function() {
     let mySrc = myImage.getAttribute('src');
-    if(mySrc === 'Boole.JPG') {
-      myImage.setAttribute ('src','Selfie.JPG');
+    if(mySrc === 'Turing.JPG') {
+      myImage.setAttribute ('src','Turing.JPG');
     } else {
-      myImage.setAttribute ('src','Boole.JPG');
+      myImage.setAttribute ('src','Turing.JPG');
     }
 }
 
