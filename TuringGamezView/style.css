@@ -49,8 +49,8 @@ h2
 }
 
 .btn {
-  background-color: gold;
-  color: white;
+  background-color: white;
+  color: blue;
   height: 40px;
   width: 100%;
   font-family: Arial;
@@ -58,7 +58,8 @@ h2
 }
 
 #decr {
-  background-color: maroon;
+  background-color: blue;
+  color:white;
 }
 
 #message-wrapper {

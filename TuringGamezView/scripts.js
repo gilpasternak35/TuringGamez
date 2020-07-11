@@ -36,20 +36,19 @@ function decr() {
     counterNum.innerHTML--;
 
 }
+
 let myImage = document.querySelector('img');
 
 myImage.onclick = function() {
-    let mySrc = myImage.getAttribute('src');
-    if(mySrc === 'Turing.JPG') {
-      myImage.setAttribute ('src','Turing.JPG');
-    } else {
-      myImage.setAttribute ('src','Turing.JPG');
-    }
+    
+    let name = prompt("What is your name?", "John Doe");
+  
+    msgText.innerHTML = "Hello " + name + ", nice to meet you!"
 }
 
 function dispMessage() {
 
-  let name = prompt("What is your name?", "Student 1");
+  let name = prompt("What is your name?", "John Doe");
   
-  msgText.innerHTML = "Hello " + name + ", I hope you are enjoying the website!";
+  msgText.innerHTML = "Hello " + name + ", I am Alan Turing!";
 }
