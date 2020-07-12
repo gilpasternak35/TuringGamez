@@ -13,23 +13,14 @@
 
 	</head>
 	<body>
-	<h1> Welcome to Guess The Text! </h1>
+	<h1> Welcome to: what article was this? </h1>
 	<img src="Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
+	<p> Please enter the name of the song you'd like to choose: </p>
+	<input id  = "songChoice" style = 'margin:auto; align-content: center'>
+	<button type = "Button" onclick = "getInput()"> Submit </button>
+	<p id = "Choice"></p>
 	<br>
-	<p> Please pick your text style of choice below: </p>
-	<div id="message-wrapper">
-        <button id="msg" class="btn btn-primary">Wikipedia Entry</button> 
-      </div>
-      <br>
-      <div id="message-wrapper">
-      	<a href = "GuessText_song.html">
-        <button id="msg" class="btn btn-primary">A Song of your Choice</button> 
-    </a>
-      </div>
-      <br>
-      <div id="message-wrapper">
-        <button id="msg" class="btn btn-primary">A Famous Quote</button> 
-      </div>
 	</body>
 
+	<script src = 'GuessTextController.js'> </script>
 	</html>
