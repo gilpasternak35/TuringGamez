@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>TuringGamez</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+
+  <!-- This is the importation of bootstrap for design purposes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <p id="msgText"></p>
+
+    <h1>Welcome to TuringGamez! </h1>
+    <img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
+    <br>
+    <p style='color:white; text-align:center'>The MiniGame set that puts your knowledge of the English languages up to
+      the test</p>
+
+
+
+    <h2 style='text-align:center; color: white'> Main Menu: </h2>
+    <br>
+    <!-- Menu options -->
+    <div id="message-wrapper">
+      <a href="MadLibs_Submenu.html">
+        <button id="msg" class="btn btn-primary">Mad Libs</button> </a>
+    </div>
+    <br>
+    <div id="message-wrapper">
+      <a href="GuessText_Submenu.html">
+        <button id="msg" class="btn btn-primary">Guess the Text</button> </a>
+    </div>
+    <br>
+    <div id="message-wrapper">
+      <a href="WikipediaText.html">
+        <button id="msg" class="btn btn-primary">What Wikipedia Article is This?</button> </a>
+    </div>
+    <br>
+    <div id="message-wrapper">
+      <a href="FavoriteSong.html">
+        <button id="msg" class="btn btn-primary">How well do you know your favorite song?</button> </a>
+    </div>
+    <!-- THIS H1 ELEMENT SHOULD NOT BE CHANGED DIRECTLY. 
+            YOU MAY ONLY CHANGE THE INNERHTML OF THIS 
+            ELEMENT USING JAVASCRIPT -->
+    <div id="counter-wrapper">
+      <h1 id="counter">0</h1>
+    </div>
+
+
+    <!-- WRAPPER FOR OUR INCR AND DECR BUTTONS -->
+    <section id="buttons">
+
+      <!-- CLICKING THIS BUTTON SHOULD DECREASE THE NUMBER 
+              IN THE COUNTER H1 TAG BY 1. NOTE THAT IF YOU 
+              TRY TO DECREASE BELOW 0,A POPUP SHOULD WARN 
+              THAT THE USER CANNOT DO THIS. -->
+      <div id="left">
+        <button id="decr" class="btn" onClick="decr()">I don't get it!</button>
+      </div>
+
+      <!-- CLICKING THE INCREASE BUTTON SHOULD INCREMENT 
+        THE COUNTER BY ONE. THERE IS NO LIMIT ON THIS NUMBER; 
+        IT CAN INCREASE FOREVER. -->
+      <div id="right">
+        <button id="incr" class="btn" onClick="incr()">About Allen Turing</button>
+      </div>
+
+    </section>
+
+    <!-- CLICKING THIS BUTTON DISPLAYS A MESSAGE THAT CONTAINS 
+        THE NAME THE USER INPUTS IN THE TEXT BOX. -->
+    <div id="message-wrapper">
+      <button id="msg" class="btn btn-primary" onClick="dispMessage()">Who created this thing?</button>
+    </div>
+    <!-- MESSAGE TEXT SHOULD BE DISPLAYED IN THE PARAGRAPH BELOW. -->
+  </div>
+
+</body>
+<script src="../javascript/MainMenu.js"></script>
+
+</html>

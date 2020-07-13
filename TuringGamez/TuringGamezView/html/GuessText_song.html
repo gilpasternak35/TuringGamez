@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Guess the Text</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="../style.css">
 		<script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
     	<script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
      	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
@@ -13,15 +13,16 @@
 
 	</head>
 	<body>
-	<h1> Welcome to: Song Mad Libs! </h1>
-	<img src="Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
+	<h1> Welcome to: what song was this? </h1>
+	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
 	<p> Please enter the name of the song you'd like to choose: </p>
 	<div style  = 'text-align: center; margin:0px auto; align-content: center'>
 	<input id  = "songChoice" style = 'margin:0px auto; align-content: center'>
-	<button type = "Button" onClick = "getInput()" style ='background-color:blue; color:white'> Submit </button>
+	<button type = "Button" onclick = "getInput()" style ='background-color:blue; color:white'> Submit </button>
 </div>
+	<p id = "Choice"></p>
 	<br>
 	</body>
 
-	<script src="MadLibsController.js"></script>
+	<script src = '../javascript/GuessTextController.js'> </script>
 	</html>

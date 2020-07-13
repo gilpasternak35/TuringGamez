@@ -6,6 +6,8 @@
 
 body {
   width: 100%;
+  /*background: linear-gradient(to left top, blue,white) fixed; */
+  background: rgba(44, 174, 250, 0.897);
 }
 
 h1
@@ -96,7 +98,3 @@ h2
   font-family: Arial;
   font-size: 18px;
 }
-body {
-  background: linear-gradient(to left top, blue,white) fixed;
-}
-
