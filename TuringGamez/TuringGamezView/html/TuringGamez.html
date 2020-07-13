@@ -4,10 +4,15 @@
 <head>
   <meta charset="utf-8">
   <title>TuringGamez</title>
+
+  <!--Import Bootstrap3 stylesheet for icons, etc. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--Apply our own stylesheet after bootstrap to ensure it overwrites Bootstrap -->
   <link rel="stylesheet" type="text/css" href="../style.css">
 
   <!-- This is the importation of bootstrap for design purposes -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
@@ -17,13 +22,18 @@
   <div id="wrapper">
     <p id="msgText"></p>
 
+    <!--A set of buttons that link to the previous page and home page-->
+    <div id='return-buttons'>
+      <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
+          class='glyphicon glyphicon-home'></span></button>
+    </div>
+
+
     <h1>Welcome to TuringGamez! </h1>
     <img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
     <br>
     <p style='color:white; text-align:center'>The MiniGame set that puts your knowledge of the English languages up to
       the test</p>
-
-
 
     <h2 style='text-align:center; color: white'> Main Menu: </h2>
     <br>

@@ -98,3 +98,10 @@ h2
   font-family: Arial;
   font-size: 18px;
 }
+
+/* Style the Home and Back buttons */
+#home-button {
+  width: fit-content; 
+  position: relative;
+}
+  
