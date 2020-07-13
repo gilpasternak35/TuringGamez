@@ -44,13 +44,17 @@
 				console.log('Song Title: ' + title);
 				if (title != "") {
 					output = "Searching...";
+					$('#Choice').hide();
+					$('#songButton').hide();
 				} else {
 					title = "Invalid song name...";
 				}
 
 				// Set the choice message according to the song title
 				$('#Choice').text(output);
+
 				console.log('Output text: ' + output);
+
 			});
 		});
 </script>
