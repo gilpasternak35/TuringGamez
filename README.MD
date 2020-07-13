@@ -3,13 +3,14 @@ An experimental game that using an NLP engine to see if the user can find the di
 
 # Game Modes:
 The game features 4 game modes:
-1)**Mad Libs** - This game version takes in a specified text and hilariously replaces the words, based on a given level of "ridiculousness"
 
-2)**Guess the Text** - Based on the level, returns a specified text (song, wikipedia entry, etc...) and several modified versions, the user must guess the original.
+1) **Mad Libs** - This game version takes in a specified text and hilariously replaces the words, based on a given level of "ridiculousness"
 
-3)**How Well Do You Know Your Favorite Song?** - Certain words within your favorite song are replaced, and you must guess which words these are
+2) **Guess the Text** - Based on the level, returns a specified text (song, wikipedia entry, etc...) and several modified versions, the user must guess the original.
 
-4)**Which Wikipedia Article Was this?** - Given a Wikipedia starting entry and a random number of "neighbors", the game clicks on a certain amount of random links based on the neighbors the user has specified. Then, based on the difficulty level, it modifies the wikipedia article by a certain number of words, and the user must guess the topic of the original entry**
+3) **How Well Do You Know Your Favorite Song?** - Certain words within your favorite song are replaced, and you must guess which words these are
+
+4) **Which Wikipedia Article Was this?** - Given a Wikipedia starting entry and a random number of "neighbors", the game clicks on a certain amount of random links based on the neighbors the user has specified. Then, based on the difficulty level, it modifies the wikipedia article by a certain number of words, and the user must guess the topic of the original entry**
  
 # Text Types:
 The first 2 games each allow the choice between 3 styles of text:
