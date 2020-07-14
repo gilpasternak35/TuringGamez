@@ -28,47 +28,53 @@
       <a href = 'TuringGamez.html'>
       <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
           class='glyphicon glyphicon-home'></span></button>
-        </a>
+      </a>
     </div>
-	<h1> Welcome to: how well do you know your favorite song? </h1>
+	<h1> How Well Do You Know Your Favorite Song? </h1>
 	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
 	<br>
 
-	<p> Please enter the name of the song you'd like to choose: </p>
 	<div style='text-align: center; margin:0px auto; align-content: center'>
-		<input id="songChoice" style='margin:0px auto; align-content: center'>
-		<button id="songButton" type="Button" style='background-color:blue; color:white'>Submit</button>
+		<div id="new-game-slider"><h1><button id = "start-game"><span id  = "play" class = "glyphicon glyphicon-play-circle"></span> New Game </button></h1></div>
+		<div hidden id="inputs">
+			<label for="level" style = "color:white, font-size:18px"><p style  = "color:white">Pick a Level:</p></label>
+			<br>
+  			<select id="cars" name="cars">
+    			<option value="1">Kiddy</option>
+    			<option value="2">Medium</option>
+    			<option value="3">Hard</option>
+    			<option value="4">Impossible</option>
+  				</select>
+  			<input type="submit", style = "background-color:blue; color:white">
+			<div id ="topic">
+				<p>Please enter an artist name: </p>
+				<input id="artist-name" style='margin:0px auto; align-content: center'>
+				<button id="topic-button" type="Button" style='background-color:blue; color:white'> Submit </button>
+			</div>
+				<br>
+			<div hidden id  = "song">
+				<p>Please enter a song title:</p>
+				<input id="wiki-links" style='margin:0px auto; align-content: center'>
+				<button id="links-button" type="Button" style='background-color:blue; color:white'> Start Game </button>  </div>
+		</div>
 	</div>
-	<p id='Choice'></p>
-	<br>
 </body>
 
-<script> 
-	// Once the document is fully setup, executes event listeners which allow the user to
-	// enter a topic and click buttons
-		$(document).ready(function () {
-			$('#songButton').click(function (evt) {
-				var title = "";
-				var output = "";
-				
-				// Pull the title from the text box
-				title = $('#songChoice').val();
-				console.log('Song Title: ' + title);
-				if (title != "") {
-					output = "Searching...";
-					$('#Choice').hide();
-					$('#songButton').hide();
-				} else {
-					title = "Invalid song name...";
-				}
-
-				// Set the choice message according to the song title
-				$('#Choice').text(output);
-
-				console.log('Output text: ' + output);
-
-			});
+	<!--Buttons nested within slider, appear when button is clicked-->
+	<!--Second Button appears when first field is entered -->
+	<script> 
+		$(document).ready(function(){
+  			$("#new-game-slider").click(function(){
+    			$("#inputs").slideToggle("slow");
+  			});
+  			$("#topic-button").click(function(){
+  				var x = $("#artist-name").val();
+  				if(x != ""){
+  					$("#song").show();
+  				}
+  			});
 		});
+
 </script>
 
 </html>

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Guess the Text</title>
+	<title>Which Wikipedia Article Was This?</title>
 	<!--Import Bootstrap3 stylesheet for icons, etc. -->
   	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,20 +22,24 @@
 </head>
 
 <body>
-	
+	<!--Toolbar containing and back button-->
 	<div id='return-buttons' class = "btn-toolbar" role = "toolbar">
-      <a href = 'TuringGamez.html'>
-      <button id = "back-button" class = 'btn btn-primary'> <span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span></button>
+      <a href = 'TuringGamez.html' alt = "turing">
+      <button id = "back-button" class = 'btn btn-primary'> 
+      	<span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span>
+      </button>
       </a>
       <a href = 'TuringGamez.html'>
       <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
           class='glyphicon glyphicon-home'></span></button>
         </a>
     </div>
-	<h1> Welcome to: what article was this? </h1>
+	<h1> What Article Was This? </h1>
 	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
 	<br>
 
+	<!--Buttons nested within slider, appear when button is clicked-->
+	<!--Second Button appears when first field is entered -->
 	<script> 
 		$(document).ready(function(){
   			$("#new-game-slider").click(function(){
@@ -51,9 +55,20 @@
 
 	</script>
 
+	<!-- Remember to add level to input forms later -->
+
 	<div style='text-align: center; margin:0px auto; align-content: center'>
 		<div id="new-game-slider"><h1><button id = "start-game"><span id  = "play" class = "glyphicon glyphicon-play-circle"></span> New Game </button></h1></div>
 		<div hidden id="inputs">
+			<label for="level" style = "color:white, font-size:18px"><p style  = "color:white">Pick a Level:</p></label>
+			<br>
+  			<select id="cars" name="cars">
+    			<option value="1">Kiddy</option>
+    			<option value="2">Medium</option>
+    			<option value="3">Hard</option>
+    			<option value="4">Impossible</option>
+  				</select>
+  			<input type="submit", style = "background-color:blue; color:white">
 			<div id ="topic">
 				<p>Please enter a starting topic: </p>
 				<input id="wiki-topic" style='margin:0px auto; align-content: center'>
