@@ -104,4 +104,17 @@ h2
   width: fit-content; 
   position: relative;
 }
+
+#back-button, #play
+{
+  width:fit-content;
+}
+
+#start-game
+{
+  background-color: #228B22;
+  color: white ;
+}
+
+}
   

@@ -4,6 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Guess the Text</title>
+	<!--Import Bootstrap3 stylesheet for icons, etc. -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
 	<script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
@@ -17,6 +20,15 @@
 </head>
 
 <body>
+	<div id='return-buttons' class = "btn-toolbar" role = "toolbar">
+      <a href = 'MadLibs_Submenu.html'>
+      <button id = "back-button" class = 'btn btn-primary'> <span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span></button>
+      </a>
+      <a href = 'TuringGamez.html'>
+      <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
+          class='glyphicon glyphicon-home'></span></button>
+        </a>
+       </div>
 	<h1> Welcome to: what quote was this? </h1>
 	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
 	</div>
