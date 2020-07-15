@@ -31,14 +31,46 @@
        </div>
 	<h1> What Song Was This? </h1>
 	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
-	<p> Please enter the name of the song you'd like to choose: </p>
-	<div style='text-align: center; margin:0px auto; align-content: center'>
-		<input id="songChoice" style='margin:0px auto; align-content: center'>
-		<button id="songButton" type="Button" style='background-color:blue; color:white'> Submit </button>
+	
+	<!--Styled section which loads the game -->
+	<div id='create-game' style='text-align: center; margin:0px auto; align-content: center'>
+		<div id="new-game-slider">
+			<h1>
+				<button id="start-game">
+					<span id="play" class="glyphicon glyphicon-play-circle"></span> New Game
+				</button>
+			</h1>
+		</div>
+		<div hidden id="inputs">
+			<p style="color:white">Pick a Level:</p>
+			<select id="level" name="level">
+				<option value="1">Kiddy</option>
+				<option value="2">Medium</option>
+				<option value="3">Hard</option>
+				<option value="4">Impossible</option>
+			</select>
+			<div id="topic">
+				<p>Please enter an artist name: </p>
+				<input id="artist-name" style='margin:0px auto; align-content: center'>
+				<button id="artist-button" type="Button" style='background-color:blue; color:white'> Submit </button>
+			</div>
+			<div hidden id="song">
+				<p>Please enter a song title:</p>
+				<input id="song-title" style='margin:0px auto; align-content: center'>
+				<button id="title-button" type="Button" style='background-color:blue; color:white'> Start Game </button>
+			</div>
+		</div>
 	</div>
-	<p id="Choice"></p>
-	<br>
+
+	<!-- This section contains displays all text content for any given run of the game -->
+	<div id='game-content'>
+		<p id='song-text' hidden>
+		</p>
+	</div>
 </body>
+
+<!-- Common interactive elements for song game pages -->
+<script src='../javascript/songs.js'></script>
 
 <!--The controller for the games linked by this page-->
 <script src='../javascript/GuessTextController.js'> </script>

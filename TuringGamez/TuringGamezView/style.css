@@ -103,18 +103,22 @@ h2
 #home-button {
   width: fit-content; 
   position: relative;
+  
 }
 
-#back-button, #play
-{
+#back-button, #play {
   width:fit-content;
 }
 
-#start-game
-{
+#start-game {
   background-color: #228B22;
   color: white ;
 }
 
+/* Style submit buttons for input fields */
+.submit-button {
+  background-color:blue; 
+  color:white;
 }
+
   

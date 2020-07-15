@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<title>Guess the Text</title>
 	<!--Import Bootstrap3 stylesheet for icons, etc. -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
 	<script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
@@ -21,60 +21,58 @@
 </head>
 
 <body>
-	<div id='return-buttons' class = "btn-toolbar" role = "toolbar">
-      <a href = 'TuringGamez.html'>
-      <button id = "back-button" class = 'btn btn-primary'> <span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span></button>
-      </a>
-      <a href = 'TuringGamez.html'>
-      <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
-          class='glyphicon glyphicon-home'></span></button>
-      </a>
-    </div>
+	<div id='return-buttons' class="btn-toolbar" role="toolbar">
+		<a href='TuringGamez.html'>
+			<button id="back-button" class='btn btn-primary'> <span id="back-button-glyph"
+					class="glyphicon glyphicon-arrow-left"></span></button>
+		</a>
+		<a href='TuringGamez.html'>
+			<button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
+					class='glyphicon glyphicon-home'></span></button>
+		</a>
+	</div>
 	<h1> How Well Do You Know Your Favorite Song? </h1>
 	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
 	<br>
 
-	<div style='text-align: center; margin:0px auto; align-content: center'>
-		<div id="new-game-slider"><h1><button id = "start-game"><span id  = "play" class = "glyphicon glyphicon-play-circle"></span> New Game </button></h1></div>
+	<!--Styled section which loads the game -->
+	<div id='create-game' style='text-align: center; margin:0px auto; align-content: center'>
+		<div id="new-game-slider">
+			<h1>
+				<button id="start-game">
+					<span id="play" class="glyphicon glyphicon-play-circle"></span> New Game
+				</button>
+			</h1>
+		</div>
 		<div hidden id="inputs">
-			<label for="level" style = "color:white, font-size:18px"><p style  = "color:white">Pick a Level:</p></label>
-			<br>
-  			<select id="level" name="level">
-    			<option value="1">Kiddy</option>
-    			<option value="2">Medium</option>
-    			<option value="3">Hard</option>
-    			<option value="4">Impossible</option>
-  				</select>
-  			<input type="submit", style = "background-color:blue; color:white">
-			<div id ="topic">
+			<p style="color:white">Pick a Level:</p>
+			<select id="level" name="level">
+				<option value="1">Kiddy</option>
+				<option value="2">Medium</option>
+				<option value="3">Hard</option>
+				<option value="4">Impossible</option>
+			</select>
+			<div id="topic">
 				<p>Please enter an artist name: </p>
 				<input id="artist-name" style='margin:0px auto; align-content: center'>
-				<button id="topic-button" type="Button" style='background-color:blue; color:white'> Submit </button>
+				<button id="artist-button" type="Button" style='background-color:blue; color:white'> Submit </button>
 			</div>
-				<br>
-			<div hidden id  = "song">
+			<div hidden id="song">
 				<p>Please enter a song title:</p>
-				<input id="wiki-links" style='margin:0px auto; align-content: center'>
-				<button id="links-button" type="Button" style='background-color:blue; color:white'> Start Game </button>  </div>
+				<input id="song-title" style='margin:0px auto; align-content: center'>
+				<button id="title-button" type="Button" style='background-color:blue; color:white'> Start Game </button>
+			</div>
 		</div>
+	</div>
+
+	<!-- This section contains displays all text content for any given run of the game -->
+	<div id='game-content'>
+		<p id='song-text' hidden>
+		</p>
 	</div>
 </body>
 
-	<!--Buttons nested within slider, appear when button is clicked-->
-	<!--Second Button appears when first field is entered -->
-	<script> 
-		$(document).ready(function(){
-  			$("#new-game-slider").click(function(){
-    			$("#inputs").slideToggle("slow");
-  			});
-  			$("#topic-button").click(function(){
-  				var x = $("#artist-name").val();
-  				if(x != ""){
-  					$("#song").show();
-  				}
-  			});
-		});
-
-</script>
+<!-- Common interactive elements for song game pages -->
+<script src='../javascript/songs.js'></script>
 
 </html>
