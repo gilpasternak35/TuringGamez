@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Mad Libs songs</title>
+	<!--Import Bootstrap3 stylesheet for icons, etc. -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+	<script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+	<!--Jquery import-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- This is the importation of bootstrap for design purposes -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+	<div id='return-buttons' class = "btn-toolbar" role = "toolbar">
+      <a href = 'MadLibs_Submenu.html'>
+      <button id = "back-button" class = 'btn btn-primary'> <span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span></button>
+      </a>
+      <a href = 'TuringGamez.html'>
+      <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
+          class='glyphicon glyphicon-home'></span></button>
+        </a>
+       </div>
+	<h1> Song Mad Libs! </h1>
+	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
+	
+	<!--Styled section which loads the game -->
+	<div id='create-game' style='text-align: center; margin:0px auto; align-content: center'>
+		<div id="new-game-slider">
+			<h1>
+				<button id="start-game">
+					<span id="play" class="glyphicon glyphicon-play-circle"></span> New Game
+				</button>
+			</h1>
+		</div>
+		<div hidden id="inputs">
+			<p style="color:white">Pick a Level:</p>
+			<select id="level" name="level">
+				<option value="1">Kiddy</option>
+				<option value="2">Medium</option>
+				<option value="3">Hard</option>
+				<option value="4">Impossible</option>
+			</select>
+			<div id="topic">
+				<p>Please enter an artist name: </p>
+				<input id="artist-name" style='margin:0px auto; align-content: center'>
+				<button id="artist-button" type="Button" style='background-color:blue; color:white'> Submit </button>
+			</div>
+			<div hidden id="song">
+				<p>Please enter a song title:</p>
+				<input id="song-title" style='margin:0px auto; align-content: center'>
+				<button id="title-button" type="Button" style='background-color:blue; color:white'> Start Game </button>
+			</div>
+		</div>
+	</div>
+
+	<!-- This section contains displays all text content for any given run of the game -->
+	<div id='game-content'>
+		<p id='song-text' hidden>
+		</p>
+	</div>
+</body>
+
+<!-- Common interactive elements for song game pages -->
+<script src='../javascript/songs.js'></script>
+
+<script src="../javascript/MadLibsController.js"></script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Guess the Text</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+    	<script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+     	<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <!-- This is the importation of bootstrap for design purposes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	</head>
+	<body>
+    <!--A set of buttons that link to the previous page and home page-->
+    <div id='return-buttons' class = "btn-toolbar" role = "toolbar">
+      <a href = 'TuringGamez.html'>
+      <button id = "back-button" class = 'btn btn-primary'> <span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span></button>
+      </a>
+      <a href = 'TuringGamez.html'>
+      <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
+          class='glyphicon glyphicon-home'></span></button>
+        </a>
+    </div>
+	<h1> Welcome to Guess The Text! </h1>
+	<img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
+	<br>
+	<p> Please pick your text style of choice below: </p>
+	<div id="message-wrapper">
+    <a href  = "GuessText_wiki.html">
+        <button id="msg" class="btn btn-primary">Wikipedia Entry</button> 
+    </a>
+      </div>
+      <br>
+      <div id="message-wrapper">
+      	<a href = "GuessText_song.html">
+        <button id="msg" class="btn btn-primary">A Song of your Choice</button> 
+    </a>
+      </div>
+      <br>
+      <div id="message-wrapper">
+        <a href = "GuessText_quote.html">
+        <button id="msg" class="btn btn-primary">A Famous Quote</button> </a>
+      </div>
+	</body>
+
+	</html>

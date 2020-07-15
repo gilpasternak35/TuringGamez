@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>TuringGamez</title>
+
+  <!--Import Bootstrap3 stylesheet for icons, etc. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!--Apply our own stylesheet after bootstrap to ensure it overwrites Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="../style.css">
+
+  <!-- This is the importation of bootstrap for design purposes -->
+  <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <p id="msgText"></p>
+
+    <!--A set of buttons that link to the previous page and home page-->
+    <div id='return-buttons' class = "btn-toolbar" role = "toolbar">
+      <a href = 'TuringGamez.html'>
+      <button id = "back-button" class = 'btn btn-primary'> <span id = "back-button-glyph" class = "glyphicon glyphicon-arrow-left"></span></button>
+      </a>
+      <a href = 'TuringGamez.html'>
+      <button id='home-button' class="btn btn-primary"><span id='home-button-glyph'
+          class='glyphicon glyphicon-home'></span></button>
+        </a>
+    </div>
+
+
+    <h1>Welcome to TuringGamez! </h1>
+    <img src="../assets/Turing.JPG" style="width:350px;height:350px" alt="Silhouette">
+    <br>
+
+    <h2 style='text-align:center; color: white'> Main Menu: </h2>
+    <br>
+    <!-- Menu options -->
+    <div id="message-wrapper">
+      <a href="MadLibs_Submenu.html">
+        <button id="msg" class="btn btn-primary">Mad Libs</button> </a>
+    </div>
+    <br>
+    <div id="message-wrapper">
+      <a href="GuessText_Submenu.html">
+        <button id="msg" class="btn btn-primary">Guess the Text</button> </a>
+    </div>
+    <br>
+    <div id="message-wrapper">
+      <a href="WikipediaText.html">
+        <button id="msg" class="btn btn-primary">What Wikipedia Article is This?</button> </a>
+    </div>
+    <br>
+    <div id="message-wrapper">
+      <a href="FavoriteSong.html">
+        <button id="msg" class="btn btn-primary">How well do you know your favorite song?</button> </a>
+    </div>
+    <!-- THIS H1 ELEMENT SHOULD NOT BE CHANGED DIRECTLY. 
+            YOU MAY ONLY CHANGE THE INNERHTML OF THIS 
+            ELEMENT USING JAVASCRIPT -->
+    <div id="counter-wrapper">
+      <h1 id="counter">0</h1>
+    </div>
+
+    <!--Informational pages: about Turing, instructions, about us-->
+    <section id="buttons">
+
+      <div id="left">
+        <a href = "https://github.com/gilpasternak35/TuringGamez/blob/view/README.MD">
+        <button id="decr" class="btn">I don't get it!</button>
+      </a>
+      </div>
+
+      <!--Web link to page about Alan Turing-->
+      <div id="right">
+        <a href = "https://www.britannica.com/biography/Alan-Turing">
+        <button id="incr" class="btn">About Allen Turing</button> </a>
+      </div>
+
+    </section>
+
+    <div id="message-wrapper">
+      <a href = "https://github.com/gilpasternak35/TuringGamez/blob/view/aboutTheAuthors.md">
+      <button id="msg" class="btn btn-primary">Who created this thing?</button>
+    </a>
+    </div>
+  </div>
+
+</body>
+<script src="../javascript/MainMenu.js"></script>
+
+</html>
