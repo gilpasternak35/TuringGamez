@@ -1,0 +1,124 @@
+/*------------------------------------
+  NO NEED TO CHANGE ANYTHING
+  IN THIS CSS FILE BUT FEEL
+  FREE TO DO SO IF YOU'D LIKE
+------------------------------------*/
+
+body {
+  width: 100%;
+  /*background: linear-gradient(to left top, blue,white) fixed; */
+  background: rgba(44, 174, 250, 0.897);
+}
+
+h1
+{
+  color:white;
+  text-align:center;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+p {
+  text-align: center;
+  font-family: Arial;
+  font-size: 18px;
+  color: white;
+}
+h2
+{
+  text-align:center;
+  color: blue;
+}
+
+#counter-wrapper {
+  width: 100%;
+  font-family: Arial;
+}
+
+#counter {
+  text-align: center;
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+
+#buttons {
+  width: 400px;
+  height: 50px;
+  margin: 0px auto;
+}
+
+#left, #right {
+  width: 50%;
+  float: left;
+}
+
+.btn {
+  background-color: white;
+  color: blue;
+  height: 40px;
+  width: 100%;
+  font-family: Arial;
+  font-size: 18px;
+}
+
+#decr {
+  background-color: blue;
+  color:white;
+}
+
+#message-wrapper {
+  width: 400px;
+  margin: 0px auto;
+}
+
+#msg {
+  width: 400px;
+  margin: 0px auto;
+  background-color: white;
+  color:blue;
+}
+
+#msgText {
+  text-align: center;
+  font-size: 24px;
+}
+
+.btn-vert {
+  background-color: yellow;
+  float: center;
+  color: white;
+  width: 150%;
+  margin:0 auto;
+  height: 50px;
+  font-family: Arial;
+  font-size: 18px;
+}
+
+/* Style the Home and Back buttons */
+#home-button {
+  width: fit-content; 
+  position: relative;
+  
+}
+
+#back-button, #play {
+  width:fit-content;
+}
+
+#start-game {
+  background-color: #228B22;
+  color: white ;
+}
+
+/* Style submit buttons for input fields */
+.submit-button {
+  background-color:blue; 
+  color:white;
+}
+
+  
