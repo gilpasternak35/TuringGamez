@@ -1,11 +1,11 @@
 
 // Simple NodeJS app to test running a python app over a server
-var express = require('express');
-var app = express();
+/*const express = require('express');
+const app = express();
 
 app.get('/', (req, res) => {
     // Spawn child process, run command line args for it
-    var stuff = req.body // this is wrong
+    //var stuff = req.body // this is wrong
 
     const {spawn} = require ('child_process');
     const pyProg = spawn('python', ['test-py.py']);
@@ -18,8 +18,42 @@ app.get('/', (req, res) => {
     });
 });
 
-var port = 4004
-app.listen(port, () => console.log('App listening on port ${port}!'));
+app.listen(3000, () => console.log('App listening on port ${port}!'));*/
+
+const express = require('express');
+const app = express();
+
+// Note on these 'app.use()': If you remove the one for ../ (aka TuringGamezView), we end
+// up with skeleton HTML code. If you use all 3 directories independently, same thing.
+// If you try to import just TuringGamezView, everything breaks. Only the combo of specifically
+// using the HTML **AND** the parent directory worked... for some reason.
+// TL;DR: this is dumb but it's the only way to make it work 
+app.use(express.static('../html'));
+// app.use(express.static('../assets'));
+// app.use(express.static('../javascript')); // Javascript files
+app.use(express.static('../')); //TuringGamezView/ directory
+app.get('/', (req, res) => {
+    // Default URL redirects to the main page of our program
+    res.redirect(`http://localhost:${port}/TuringGamez.html`);
+});
+
+
+const port = 3000;
+const liveServer = app.listen(port, () => console.log(`Server live on port ${port}.`));
+/**
+ * These kill the server (or... should.)
+ */
+process.on('SIGTERM', () => {
+    liveServer.close(() => {
+        console.log(`Server process on port ${port} terminated.`);
+    });
+});
+process.on('SIGKILL', () => {
+    liveServer.close(() => {
+        console.log(`Server process on port ${port} killed.`);
+    });
+});
+
 
 /* Example of what our http request body will likely look like. 
 This should contain all necessary data about our game (type, inputs, etc.)
