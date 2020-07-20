@@ -43,17 +43,17 @@ const liveServer = app.listen(port, () => console.log(`Server live on port ${por
 /**
  * These kill the server (or... should.)
  */
-process.on('SIGTERM', () => {
+/*process.on('SIGTERM', () => {
     liveServer.close(() => {
         console.log(`Server process on port ${port} terminated.`);
     });
 });
-process.on('SIGKILL', () => {
+/*process.on('SIGKILL', () => {
     liveServer.close(() => {
         console.log(`Server process on port ${port} killed.`);
     });
 });
-
+*/
 
 /* Example of what our http request body will likely look like. 
 This should contain all necessary data about our game (type, inputs, etc.)
