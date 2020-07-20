@@ -1,11 +1,27 @@
-import requests
-import numpy as np
-import bs4
 import re
+from typing import List, Tuple
+import bs4
+import numpy as np
+import requests
+from transformers.pipelines import Pipeline
 
+# TODO: ***How are any of these gameplay functions different?**
+#       Far as I can tell, the only difference is the second return. **Everything** else is the same... so why can't
+#       they all just be one function, with an optional second return?
 
 # Runs the madlibs wikipedia version (returns messed up text)
-def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp):
+def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> Tuple[List[str], List[int]]:
+    """[summary]
+
+    Args:
+        topic (str): [description]
+        pages (int): [description]
+        level (int): [description]
+        nlp (Pipeline): [description]
+
+    Returns:
+        Tuple[List[str], List[int]]: [description]
+    """
     text, title = wiki_search(topic, pages)
     ret = " ".join(text)
     # Insurance against text too big for language model
@@ -14,8 +30,20 @@ def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp):
     new_text, indices = replace_words_at_random(nlp, text, level)
     return new_text, ret
 
+
 # Runs the madlibs wikipedia version (returns messed up text)
-def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp):
+def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> Tuple[List[str], List[int]]:
+    """[summary]
+
+    Args:
+        topic (str): [description]
+        pages (int): [description]
+        level (int): [description]
+        nlp (Pipeline): [description]
+
+    Returns:
+        Tuple[List[str], List[int]]: [description]
+    """
     text, title = wiki_search(topic, pages)
     # Insurance against text too big for language model
     if(len(text) > 350):
@@ -25,7 +53,18 @@ def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp):
 
 
 # Runs the madlibs wikipedia version (returns messed up text)
-def madlibs_wiki_gameplay(topic: str, pages: int, level: int, nlp):
+def madlibs_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> List[str]:
+    """[summary]
+
+    Args:
+        topic (str): [description]
+        pages (int): [description]
+        level (int): [description]
+        nlp (Pipeline): [description]
+
+    Returns:
+        List[str]: [description]
+    """
     text, title = wiki_search(topic, pages)
 
     # Insurance against text too big for language model
@@ -36,32 +75,67 @@ def madlibs_wiki_gameplay(topic: str, pages: int, level: int, nlp):
 
 
 # Iterates through wikipedia pages
-def wiki_search(topic, pages):
-    textSoup, title = looping_wiki_search(topic, int(pages))
+def wiki_search(topic: str, pages: int) -> Tuple[str, str]: # TODO: double check type of textSoup, was tired -Jesse
+    """[summary]
+
+    Args:
+        topic (str): [description]
+        pages (int): [description]
+
+    Returns:
+        Tuple[str, str]: [description]
+    """
+    textSoup, title = looping_wiki_search(topic, pages)
     return textSoup, title
 
 
 # Randomly selecting the next topic to be searched for
-def select_next_topic(text: [str]) -> str:
+def select_next_topic(text: List[str]) -> str:
+    """[summary]
+
+    Args:
+        text (List[str]): [description]
+
+    Returns:
+        str: [description]
+    """
     random_number = np.random.randint(1, len(text))
     return text[random_number]
 
 
 # Replaces hyphens with an underscore for url purposes, removes all punctuation that could break url
-def replace_punctuation(text):
-    specific_case = text.strip()
-    specific_case = specific_case.replace('-', ' ')
-    specific_case = specific_case.replace(' ', '_')
+def replace_punctuation(text: str) -> str:
+    """[summary]
 
-    # Remove all punctuation
+    Args:
+        text (str): [description]
+
+    Returns:
+        str: [description]
+    """
+    remove_whitespace = text.strip()
+    #remove_dashes = remove_whitespace.replace('-', ' ') 
+    #remove_dashes = remove_dashes.replace(' ', '_')
+    replace_dashes = remove_whitespace.replace('-', '_') # TODO: saved a step from above two lines
+
+    # Remove all non-word characters. Removes punctuation, extraneous symbols, etc (but not '_')
     pattern = re.compile(r'\W')
-    specific_case = re.sub(pattern, '', specific_case)
+    remove_symbols = re.sub(pattern, '', replace_dashes)
 
-    return specific_case
+    return remove_symbols
 
 
 # Loop through connected topics on wikipedia to find a "landing page", then return the text of that landing page. By default, returns the page of 'topic'
-def looping_wiki_search(topic: str, neighbor_pages=0):
+def looping_wiki_search(topic: str, neighbor_pages=0) -> Tuple[str, str]:
+    """[summary]
+
+    Args:
+        topic (str): [description]
+        neighbor_pages (int, optional): [description]. Defaults to 0.
+
+    Returns:
+        Tuple[str, str]: [description]
+    """
     searchText = ""
     url = construct_wiki_url(topic)
     original = construct_wiki_url(topic)
@@ -90,12 +164,28 @@ def looping_wiki_search(topic: str, neighbor_pages=0):
 
 
 # Takes a given user topic and constructs a valid wikipedia url
-def construct_wiki_url(url_topic: str):
+def construct_wiki_url(url_topic: str) -> str:
+    """[summary]
+
+    Args:
+        url_topic (str): [description]
+
+    Returns:
+        str: [description]
+    """
     return ('https://en.wikipedia.org/wiki/' + url_topic.lower().strip().replace(" ", "_"))
 
 
 # Obtains text from a wikipedia url
-def get_wiki_text(url):
+def get_wiki_text(url: str) -> str:
+    """[summary]
+
+    Args:
+        url (str): [description]
+
+    Returns:
+        str: [description]
+    """
     # Requesting data from url, finding specialized tags for this particular website
     res = requests.get(url)
     res.raise_for_status()
@@ -114,4 +204,5 @@ def get_wiki_text(url):
     text = text.lower()
     text = re.sub(r'\d', ' ', text)
     text = re.sub(r'\s+', ' ', text)
+
     return text
