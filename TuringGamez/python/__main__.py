@@ -9,6 +9,8 @@ from urllib.error import HTTPError
 import argparse
 
 def main():
+    # Will return individual elements
     parser = argparse.ArgumentParser(description = "TuringGamez")
+    # Parsing string and passing it to decider function, which will
 
 

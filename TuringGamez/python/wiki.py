@@ -5,7 +5,7 @@ import re
 
 
 # Runs the madlibs wikipedia version (returns messed up text)
-def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp) -> str:
+def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp):
     text, title = wiki_search(topic, pages)
     ret = " ".join(text)
     # Insurance against text too big for language model
@@ -15,7 +15,7 @@ def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp) -> str:
     return new_text, ret
 
 # Runs the madlibs wikipedia version (returns messed up text)
-def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp) -> str:
+def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp):
     text, title = wiki_search(topic, pages)
     # Insurance against text too big for language model
     if(len(text) > 350):
@@ -25,7 +25,7 @@ def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp) -> str
 
 
 # Runs the madlibs wikipedia version (returns messed up text)
-def madlibs_wiki_gameplay(topic: str, pages: int, level: int, nlp) -> str:
+def madlibs_wiki_gameplay(topic: str, pages: int, level: int, nlp):
     text, title = wiki_search(topic, pages)
 
     # Insurance against text too big for language model
