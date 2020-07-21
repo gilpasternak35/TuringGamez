@@ -48,8 +48,8 @@ def get_text(url = "https://www.keepinspiring.me/famous-quotes/" ) -> bs4.Result
     return text
 
 
-def replace_words_at_random(generator: Pipeline, word_arr: List[str], difficulty=1) -> Tuple[List[str], List[int]]:
-    """[summary]
+def replace_words_at_random(generator: Pipeline, word_arr: List[str], difficulty=1) -> Tuple[str, List[int]]:
+    """[summary] 
 
     Args:
         generator (Pipeline): [description]

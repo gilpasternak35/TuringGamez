@@ -5,12 +5,9 @@ import numpy as np
 import requests
 from transformers.pipelines import Pipeline
 
-# TODO: ***How are any of these gameplay functions different?**
-#       Far as I can tell, the only difference is the second return. **Everything** else is the same... so why can't
-#       they all just be one function, with an optional second return?
 
 # Runs the madlibs wikipedia version (returns messed up text)
-def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> Tuple[List[str], List[int]]:
+def wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> Tuple[str, str, str]:
     """[summary]
 
     Args:
@@ -20,58 +17,15 @@ def guessText_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -
         nlp (Pipeline): [description]
 
     Returns:
-        Tuple[List[str], List[int]]: [description]
+        Tuple[str, str, str]: [description]
     """
     text, title = wiki_search(topic, pages)
-    ret = " ".join(text)
+    old_text = ' '.join(text)
     # Insurance against text too big for language model
     if(len(text) > 350):
         text = text[:350]
     new_text, indices = replace_words_at_random(nlp, text, level)
-    return new_text, ret
-
-
-# Runs the madlibs wikipedia version (returns messed up text)
-def guess_original_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> Tuple[List[str], List[int]]:
-    """[summary]
-
-    Args:
-        topic (str): [description]
-        pages (int): [description]
-        level (int): [description]
-        nlp (Pipeline): [description]
-
-    Returns:
-        Tuple[List[str], List[int]]: [description]
-    """
-    text, title = wiki_search(topic, pages)
-    # Insurance against text too big for language model
-    if(len(text) > 350):
-        text = text[:350]
-    new_text, indices = replace_words_at_random(nlp, text, level)
-    return new_text, title
-
-
-# Runs the madlibs wikipedia version (returns messed up text)
-def madlibs_wiki_gameplay(topic: str, pages: int, level: int, nlp: Pipeline) -> List[str]:
-    """[summary]
-
-    Args:
-        topic (str): [description]
-        pages (int): [description]
-        level (int): [description]
-        nlp (Pipeline): [description]
-
-    Returns:
-        List[str]: [description]
-    """
-    text, title = wiki_search(topic, pages)
-
-    # Insurance against text too big for language model
-    if (len(text) > 350):
-        text = text[:350]
-    new_text, indices = replace_words_at_random(nlp, text, level)
-    return new_text
+    return new_text, old_text, title
 
 
 # Iterates through wikipedia pages

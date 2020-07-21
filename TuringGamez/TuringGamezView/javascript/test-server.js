@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     //var stuff = req.body // this is wrong
 
     const {spawn} = require ('child_process');
-    const pyProg = spawn('python', ['test-py.py']);
+    const pyProg = spawn('python', ['__main__.py', '-h']);
     // Call one overarching python file, it delegates to the correct game file
 
     pyProg.stdout.on('data', function(data) {
@@ -35,6 +35,15 @@ app.use(express.static('../')); //TuringGamezView/ directory
 app.get('/', (req, res) => {
     // Default URL redirects to the main page of our program
     res.redirect(`http://localhost:${port}/TuringGamez.html`);
+
+    /*const {spawn} = require ('child_process');
+    const pyProg = spawn('python', ['../../python/__main__.py', '-h']);
+
+    pyProg.stdout.on('data', function(data) {
+        console.log(data.toString());
+        res.write(data);
+        res.end('end');
+    });*/
 });
 
 

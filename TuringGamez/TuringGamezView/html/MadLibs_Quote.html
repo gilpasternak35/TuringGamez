@@ -20,6 +20,7 @@
 </head>
 
 <body>
+	<!-- Navbar for home and return buttons -->
 	<div id='return-buttons' class="btn-toolbar" role="toolbar">
 		<a href='MadLibs_Submenu.html'>
 			<button id="back-button" class='btn btn-primary'> <span id="back-button-glyph"
@@ -55,7 +56,7 @@
 			</select>
 			<br>
 			<br>
-			<button id='start-game' type="button" style='background-color:blue; color:white'>
+			<button id='start-game'class='start-game' type="button" style='background-color:blue; color:white'>
 				Start Game
 			</button>
 		</div>
@@ -73,5 +74,8 @@
 
 <!--The controller for the games linked by this page-->
 <script src='../javascript/GuessTextController.js'> </script>
+
+<!-- Generalized script for generating a JSON packet from user input -->
+<script src='../javascript/TuringController.js'></script>
 
 </html>

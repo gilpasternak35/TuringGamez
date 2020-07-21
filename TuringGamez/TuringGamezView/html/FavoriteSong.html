@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Guess the Text</title>
+	<title>Favorite Song</title>
 	<!--Import Bootstrap3 stylesheet for icons, etc. -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -60,7 +60,8 @@
 			<div hidden id="song">
 				<p>Please enter a song title:</p>
 				<input id="song-title" style='margin:0px auto; align-content: center'>
-				<button id="title-button" type="Button" style='background-color:blue; color:white'> Start Game </button>
+				<button id="title-button" class='start-game' type="Button" style='background-color:blue; color:white'>
+					Start Game </button>
 			</div>
 		</div>
 	</div>
@@ -74,5 +75,6 @@
 
 <!-- Common interactive elements for song game pages -->
 <script src='../javascript/songs.js'></script>
+<script src='../javascript/TuringController.js'></script>
 
 </html>

@@ -12,7 +12,11 @@ from typing import Any, Callable, Dict, List
 
 
 def main():
+    """[summary]
 
+    Returns:
+        [type]: [description]
+    """
     # Define a dictionary which maps gametypes to their corresponding
     gametype_map = _init_gametype_dict()
 
