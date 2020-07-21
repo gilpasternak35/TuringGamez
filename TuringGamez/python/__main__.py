@@ -24,7 +24,8 @@ def main():
     parser = _init_argparser(gametype_map.keys())
 
     # Parse the arguments and return
-    print(parser.parse_args()) #TODO: this doesn't quite work yet, but it's getting close
+    # TODO: this doesn't quite work yet, but it's getting close
+    print(parser.parse_args())
     # TODO: Goal is (I think) mutually exclusive subcommands for song vs. wiki games. Not sure if possible -Jesse
 
 
@@ -48,7 +49,7 @@ def _init_gametype_dict() -> Dict[str, Callable[..., Any]]:
         #       seemed to be 3 distinct game functions. -Jesse
     }
     # return mapper # TODO: put this real one back, once we fix the project structure (talk to jesse)
-    return {'test-val': lambda: print('I\'ll bite your leg off')}
+    return {'game-1': lambda: print('I\'ll bite your leg off'), 'game-2': lambda: print('hello-world')}
 
 
 def _init_argparser(game_modes: List[str]) -> ArgumentParser:
@@ -72,15 +73,17 @@ def _init_argparser(game_modes: List[str]) -> ArgumentParser:
                         help='Difficulty level: [1-...]', metavar='D')
 
     # Make Song and Wikipedia arguments mutually exclusive #TODO: more descriptive name for argument group
-    # non_conflicting_args = parser.add_mutually_exclusive_group() #TODO: didn't work yet
+    non_conflicting_args = parser.add_mutually_exclusive_group()  # TODO: didn't work yet
 
     """
     Set game-type parameters for 'Song' games
     """  # 'Song Game Required Args:'
-    parser.add_argument('--artist', '-a',
-                        help='Name of artist for song games')
-    parser.add_argument('--song-title', '-t', metavar='TITLE',
-                        help='Title of song for song games')
+    non_conflicting_args.add_argument('--artist', '-a', metavar='ARTIST',
+                                      dest='song-game', help='Name of artist for song games')
+    song_subparser = parser.add_subparsers(dest='song-game')
+    song_subparser.add_parser('title')
+    # parser.add_argument('--song-title', '-t', metavar='TITLE',
+    #                     help='Title of song for song games')
     """song_parser = parser.add_subparsers(help='Subcommand', dest='artist')
     song_parser.add_parser('-t', #'-t', metavar='TITLE',
                            help='Title of song for song games')"""
@@ -88,10 +91,10 @@ def _init_argparser(game_modes: List[str]) -> ArgumentParser:
     """
     Set game-type parameters for 'Wiki' games
     """  # 'Wikipedia Game Required Args:'
-    parser.add_argument('--wiki-topic', '-w', metavar='TOPIC',
+    non_conflicting_args.add_argument('--wiki-topic', '-w', metavar='TOPIC', dest='wiki-game',
                                       help='An initial topic to search on Wikipedia.org for Wikipedia games')
-    parser.add_argument('--wiki-links', '-l', metavar='L',
-                           help='A number of links to follow on wikipedia in wiki games')
+    # parser.add_argument('--wiki-links', '-l', metavar='L',
+    #                        help='A number of links to follow on wikipedia in wiki games')
     """
     parser.add_argument('--wiki-topic', '-w', metavar='TOPIC',
                                       help='An initial topic to search on Wikipedia.org for Wikipedia games')

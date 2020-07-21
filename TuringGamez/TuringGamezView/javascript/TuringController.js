@@ -1,12 +1,17 @@
-$(document).ready(function () {
-    $('.start-game').click(function () {
-        // Gametype Agnostic parameters
-        var gameType = document.title // Gametype is the title of the webpage
+$(document).ready(() => {
+    $('.start-game').click(() => {
+        /**
+         * Gametype agnostic parameters
+         */
+        // Gametype is the title of the webpage
+        var gameType = document.title.trim().replace(/ /g, '-').toLowerCase()
         console.log(`Game Type: ${gameType}`)
         var difficultyLevel = $('#level').val() // Game difficulty level
         console.log(`Difficulty: ${difficultyLevel}`)
 
-        // Gametype specific parameters
+        /**
+         * Gametype specific parameters
+         */
         var artistName = $('#artist-name').val(); // Song game args
         var songTitle = null;
         var wikiTopic = $('#wiki-topic').val(); // Wiki game args
@@ -24,7 +29,13 @@ $(document).ready(function () {
 
             // Guarantees uniformity in the json packet
             artistName = null;
+        } else {
+            // If no artist or topic is found, it's a quote game.
+            // Set artistName and wikiTopic to null for uniformity within the JSON packet.
+            artistName = null;
+            wikiTopic = null;
         }
+
         // If none of the above, then it's a quote game. All inputs found. JSONify.  
         packet = JSON.stringify({
             'game-type': gameType,
