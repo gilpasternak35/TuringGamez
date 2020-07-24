@@ -7,8 +7,9 @@ import re
 import random
 from urllib.error import HTTPError"""
 import argparse
-from argparse import ArgumentParser
-from typing import Any, Callable, Dict, List
+from argparse import ArgumentParser, Namespace
+from typing import Any, Callable, Dict, List, Optional, Sequence, Text, Union
+from TuringGamez.python import quotes, songs, wiki
 
 
 def main():
@@ -25,6 +26,7 @@ def main():
 
     # Parse the arguments and return
     # TODO: this doesn't quite work yet, but it's getting close
+    # parser.print_help()
     print(parser.parse_args())
     # TODO: Goal is (I think) mutually exclusive subcommands for song vs. wiki games. Not sure if possible -Jesse
 
@@ -39,17 +41,16 @@ def _init_gametype_dict() -> Dict[str, Callable[..., Any]]:
                                         function.
     """
     mapper = {
-        """'madlib-song': songs.madlibs_song_gameplay, # Mad-Lib games
+        'madlib-song': songs.madlibs_song_gameplay, # Song games
+        'guess-song': songs.guessText_song_gameplay, 
         'madlib-wiki': wiki.madlib_wiki_gameplay,
-        'madlib-quote': quotes.madlibs_quotes_gameplay,
-        'guess-song': songs.guessText_song_gameplay, # Guessing Games
-        'guess-wiki': wiki.guess_original_wiki_gameplay,
-        'guess-quote': quotes.guessText_quotes_gameplay"""
+        'madlib-quote': quotes.madlibs_quotes_gameplay, # Quote Games
+        'guess-wiki': wiki.guess_original_wiki_gameplay, # Wiki Games
+        # 'guess-quote': quotes.guessText_quotes_gameplay
         # TODO: ...shouldn't there be more games? I feel like I'm missing some but there only
         #       seemed to be 3 distinct game functions. -Jesse
     }
     # return mapper # TODO: put this real one back, once we fix the project structure (talk to jesse)
-    return {'game-1': lambda: print('I\'ll bite your leg off'), 'game-2': lambda: print('hello-world')}
 
 
 def _init_argparser(game_modes: List[str]) -> ArgumentParser:
@@ -66,14 +67,16 @@ def _init_argparser(game_modes: List[str]) -> ArgumentParser:
     help_str = 'Valid game types:\n'
     for gt in game_modes:
         help_str += gt + ','
-    parser.add_argument('game-type', choices=game_modes, help=help_str)
+    parser.add_argument('game-type', choices=game_modes,
+                        action='store', help=help_str)
 
     # Set game difficulty
-    parser.add_argument('--difficulty', '-d',
+    parser.add_argument('--difficulty', '-d', type=int, default=2,
                         help='Difficulty level: [1-...]', metavar='D')
 
     # Make Song and Wikipedia arguments mutually exclusive #TODO: more descriptive name for argument group
-    non_conflicting_args = parser.add_mutually_exclusive_group()  # TODO: didn't work yet
+    non_conflicting_args = parser.add_mutually_exclusive_group(
+        required=True)  # TODO: didn't work yet
 
     """
     Set game-type parameters for 'Song' games
@@ -103,6 +106,10 @@ def _init_argparser(game_modes: List[str]) -> ArgumentParser:
                                       help='A number of links to follow on wikipedia in wiki games')"""
 
     return parser
+
+
+class StoreGametypeAction(argparse.Action):
+    def __call__(self, parser: ArgumentParser, namespace: Namespace, values: Union[Text, Sequence[Any], None], option_string: Optional[Text]) -> None:
 
 
 if __name__ == '__main__':
