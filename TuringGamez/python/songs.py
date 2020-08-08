@@ -1,8 +1,6 @@
+import re
 from typing import List
 import lyricsgenius
-import re
-from tensorflow.python.ops.gen_array_ops import const
-
 from transformers.pipelines import Pipeline
 
 
