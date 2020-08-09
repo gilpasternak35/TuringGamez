@@ -67,12 +67,28 @@
 	</div>
 
 	<!-- This section contains displays all text content for any given run of the game -->
-	<div id='game-content'>
+	<br><br>
+	<div id='game-content' style  = "color: white; margin:0px auto; align-content:center; ">
 		<p id='song-text' hidden>
 		</p>
 	</div>
 </body>
 
+<script>
+//As referenced on the following page: https://stackoverflow.com/questions/7099916/how-to-pass-parameter-from-backend-to-frontend-if-dont-use-hidden-field-control
+$(document).ready(function(){
+  $(".start-game").click(function(){
+  	// This is to be changed once we know specific file path
+  	var value = "Hello-World"
+  	$("#song-text").text(value).show()
+  	$("#inputs, #topic, #song").slideUp(5000);
+    $("#new-game-slider").slideUp(5000);
+    $("#new-game-slider").slideDown(5000);
+    $("#inputs, #topic").slideDown(5000);
+    $("#artist-name, #song-title").val("")
+  });
+});
+</script>
 <!-- Common interactive elements for song game pages -->
 <script src='../javascript/songs.js'></script>
 <script src='../javascript/TuringController.js'></script>
