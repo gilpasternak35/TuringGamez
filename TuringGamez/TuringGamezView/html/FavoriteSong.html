@@ -52,7 +52,7 @@
 				<option value="3">Hard</option>
 				<option value="4">Impossible</option>
 			</select>
-			<div id="topic">
+			<div hidden id="artist">
 				<p>Please enter an artist name: </p>
 				<input id="artist-name" style='margin:0px auto; align-content: center'>
 				<button id="artist-button" type="Button" style='background-color:blue; color:white'> Submit </button>
@@ -81,10 +81,7 @@ $(document).ready(function(){
   	// This is to be changed once we know specific file path
   	var value = "Hello-World"
   	$("#song-text").text(value).show()
-  	$("#inputs, #topic, #song").slideUp(5000);
-    $("#new-game-slider").slideUp(5000);
-    $("#new-game-slider").slideDown(5000);
-    $("#inputs, #topic").slideDown(5000);
+  	$("#inputs, #artist, #song").slideUp(5000);
     $("#artist-name, #song-title").val("")
   });
 });

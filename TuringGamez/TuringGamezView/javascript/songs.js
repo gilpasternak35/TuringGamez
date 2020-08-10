@@ -2,7 +2,7 @@
 // Second Button appears when first field is entered 
 $(document).ready(function () {
     $("#new-game-slider").click(function () {
-        $("#inputs").slideToggle("slow");
+        $("#inputs, #artist").slideToggle("slow");
     });
     $("#artist-button").click(function () {
         var x = $("#artist-name").val();
