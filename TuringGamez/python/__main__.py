@@ -23,25 +23,30 @@ def main():
 
     # Will return individual elements
     parser = _init_argparser(song_dict.keys(), wiki_dict.keys(), quote_dict.keys(),
-                             range(1, 4))  # TODO: Verify the difficulty range
+                             range(1, 5))  # TODO: Verify the difficulty range
 
     # Join all game maps into a single map
-    game_function_map = {**song_dict, **wiki_dict, **quote_dict}
+    # game_function_map = {**song_dict, **wiki_dict, **quote_dict}
+
+    # dicty = {
+    #     'song': song_dict,
+    #     'wiki':
+    # }
 
     # Parse the arguments and return
     # TODO: this doesn't quite work yet, but it's getting close
     # parser.print_help()
     # print(parser.parse_args(['--difficulty', '2', 'song', '--title', 'title', '--artist', 'artist', '--type', 'type']))
-    # print(parser.parse_args(['wiki', '--topic', 'topic', '--number-of-links', '3', '--type', 'type']))
-    # print(parser.parse_args(['song', '-h']))
-    # print(parser.parse_args(['wiki', '-h']))
-    print(parser.parse_args(['quote', '-h']))
+    print(parser.parse_args(['wiki', '--topic', 'topic', '--links', '3', '--type', 'guess-wiki', 'song']))
+    #print(parser.parse_args(['song', '-h']))
+    #print(parser.parse_args(['wiki', '-h']))
+    #print(parser.parse_args(['quote', '--d', '5']))
 
 
 def _init_gametype_dict() -> Tuple[Dict[str, Callable[..., Any]],
                                    Dict[str, Callable[..., Any]],
                                    Dict[str, Callable[..., Any]]]:
-    """Initializes a mapping from gametpying strings to Callable functions which execute the
+    """Initializes a mapping from gametyping strings to Callable functions which execute the
        appropriate game. 
 
 
@@ -81,9 +86,9 @@ def _init_argparser(song_choices: Iterable[str], wiki_choices: Iterable[str],
     # Defines common arguments between game types: --difficulty, --type
     parent_parser = argparse.ArgumentParser(add_help=False)
     # Sets game difficulty
-    parent_parser.add_argument('--difficulty', '-d', type=int, default=2, choices=difficulty_levels,
-                               help=f'Difficulty level: [{difficulty_levels.start} - {difficulty_levels.stop - 1}]',
-                               metavar='D')
+    parent_parser.add_argument('--difficulty', '-d', type=int, default=2, choices=difficulty_levels, metavar='D',
+                               help=f'Difficulty level: [{difficulty_levels.start} - {difficulty_levels.stop - 1}]')
+
     # parent_parser.add_argument('--type', dest='type',type=str, action='store', help='This is a default help message.')
     # TODO: Goal - add the type argument to the parent, override choices for each sub-parser. (Compiler error?)
 
@@ -114,8 +119,8 @@ def _init_argparser(song_choices: Iterable[str], wiki_choices: Iterable[str],
     wiki_parser = subparsers.add_parser('wiki', description='Parse wiki game arguments', parents=[parent_parser])
     wiki_parser.add_argument('--topic', type=str, action='store',  # metavar='A', possible to default 'ARTIST'
                              help='An initial topic to search on Wikipedia.org for Wikipedia games')
-    wiki_parser.add_argument('--number-of-links', metavar='N', type=int, action='store', choices=range(0, 100),
-                             help='A number of links to follow on Wikipedia in wiki games')
+    wiki_parser.add_argument('--links', metavar='N', type=int, action='store', choices=range(0, 50),
+                             help='A number of links to follow on Wikipedia in wiki games. [0 - 50].')
     # Enables more specificity w/in wiki games
     wiki_parser.add_argument('--type', type=str, action='store', choices=wiki_choices, default=list(wiki_choices)[0],
                              help='The name of the specific wiki game mode to play')
