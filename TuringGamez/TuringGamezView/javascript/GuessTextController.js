@@ -22,6 +22,14 @@ $('#songButton').click(function (evt) {
   }
 });
 
+$(document).ready(function(){
+  $(".start-game").click(function(){
+    // This is to be changed once we know specific file path
+    var value = "Hello-World"
+    $(".wiki-text-display").text(value).show();
+  });
+});
+
 // Deprecated
 function getInput() {
   var inpy, output;
@@ -37,4 +45,5 @@ function getInput() {
 
   document.getElementById("Choice").innerHTML = output;
 }
+
 

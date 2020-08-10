@@ -159,3 +159,6 @@ hs_err_pid*
 *.idea
 *.iml
 out/
+
+# VS Code Files
+.vscode/

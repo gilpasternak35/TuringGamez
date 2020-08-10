@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Guess the Text</title>
+	<title>Favorite Song</title>
 	<!--Import Bootstrap3 stylesheet for icons, etc. -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -52,7 +52,7 @@
 				<option value="3">Hard</option>
 				<option value="4">Impossible</option>
 			</select>
-			<div id="topic">
+			<div hidden id="artist">
 				<p>Please enter an artist name: </p>
 				<input id="artist-name" style='margin:0px auto; align-content: center'>
 				<button id="artist-button" type="Button" style='background-color:blue; color:white'> Submit </button>
@@ -60,19 +60,34 @@
 			<div hidden id="song">
 				<p>Please enter a song title:</p>
 				<input id="song-title" style='margin:0px auto; align-content: center'>
-				<button id="title-button" type="Button" style='background-color:blue; color:white'> Start Game </button>
+				<button id="title-button" class='start-game' type="Button" style='background-color:blue; color:white'>
+					Start Game </button>
 			</div>
 		</div>
 	</div>
 
 	<!-- This section contains displays all text content for any given run of the game -->
-	<div id='game-content'>
+	<br><br>
+	<div id='game-content' style  = "color: white; margin:0px auto; align-content:center; ">
 		<p id='song-text' hidden>
 		</p>
 	</div>
 </body>
 
+<script>
+//As referenced on the following page: https://stackoverflow.com/questions/7099916/how-to-pass-parameter-from-backend-to-frontend-if-dont-use-hidden-field-control
+$(document).ready(function(){
+  $(".start-game").click(function(){
+  	// This is to be changed once we know specific file path
+  	var value = "Hello-World"
+  	$("#song-text").text(value).show()
+  	$("#inputs, #artist, #song").slideUp(5000);
+    $("#artist-name, #song-title").val("")
+  });
+});
+</script>
 <!-- Common interactive elements for song game pages -->
 <script src='../javascript/songs.js'></script>
+<script src='../javascript/TuringController.js'></script>
 
 </html>
