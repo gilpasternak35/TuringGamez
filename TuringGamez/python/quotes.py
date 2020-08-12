@@ -5,7 +5,7 @@ from transformers.pipelines import Pipeline
 
 
 # Runs the madlibs famous quotes version (returns messed up text)
-def guessText_quotes_gameplay(nlp: Pipeline, level: int) -> str:
+def guessText_quotes_gameplay(nlp, level: int) -> str:
     # Scraping quotes website to obtain our text
     text = get_text()
     table = pd.DataFrame().assign(quote=text)
@@ -18,7 +18,10 @@ def guessText_quotes_gameplay(nlp: Pipeline, level: int) -> str:
     author = row.get("author")
     # Randomly replacing words
     new_quote, indices = replace_words_at_random(nlp, quote, level)
-    return new_quote + " " + author
+
+    # Obtaining the original quote
+    original_quote = row.get("quote") + " " + row.get("author")
+    return original_quote, new_quote + " " + author
 
 
 # Runs the madlibs famous quotes version (returns messed up text)
@@ -74,3 +77,21 @@ def table_process(table: pd.DataFrame) -> pd.DataFrame:
     table = cleaner(table)
     table = table.assign(author  = table.get("quote").apply(authors), quote = table.get("quote").apply(remove_authors))
     return table
+
+
+# For utilizing Beautiful Soup 4 to Scrape inspiring quote website
+def get_text(url = "https://www.keepinspiring.me/famous-quotes/" ) -> bs4.ResultSet:
+    """[summary]
+
+    Args:
+        url (str, optional): [description]. Defaults to "https://www.keepinspiring.me/famous-quotes/".
+
+    Returns:
+        bs4.ResultSet: [description]
+    """
+    # Requesting data from url, finding specialized tags for this particular website
+    res = requests.get(url)
+    res.raise_for_status()
+    soup = bs4.BeautifulSoup(res.text, "html.parser")
+    text  = soup.find_all("div", class_ = 'author-quotes')
+    return text

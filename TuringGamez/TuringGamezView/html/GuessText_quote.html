@@ -60,10 +60,9 @@
 			</button>
 		</div>
 	</div>
-	<br><br>
+	<br>
 	<div id='game-content' style  = "color: white; margin:0px auto; align-content:center; ">
-		<p class ='wiki-text-display' hidden>
-		</p>
+		<p id ='quote-display' hidden></p>
 	</div>
 </body>
 
@@ -73,6 +72,14 @@
 		$('#new-game-slider').click(function () {
 			$('#inputs').slideToggle("slow");
 		});
+	});
+	$(document).ready(function(){
+	  $(".start-game").click(function(){
+	  	// This is to be changed once we know specific file path
+	  	var value = "Hello-World"
+	  	$("#quote-display").text(value).show()
+	  	$("#inputs").slideUp(5000);
+	  });
 	});
 </script>
 

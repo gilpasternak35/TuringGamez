@@ -31,3 +31,14 @@ $(document).ready(function () {
         }
     });
 });
+
+//As referenced on the following page: https://stackoverflow.com/questions/7099916/how-to-pass-parameter-from-backend-to-frontend-if-dont-use-hidden-field-control
+$(document).ready(function(){
+  $(".start-game").click(function(){
+    // This is to be changed once we know specific file path
+    var value = "Hello-World"
+    $("#song-text").text(value).show()
+    $("#inputs, #artist, #song").slideUp(5000);
+    $("#artist-name, #song-title").val("")
+  });
+});

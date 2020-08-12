@@ -2,7 +2,7 @@
 // Second Button appears when first field is entered
 $(document).ready(function () {
     $("#new-game-slider").click(function () {
-        $("#inputs").slideToggle("slow");
+        $("#inputs, #topic").slideToggle("slow");
     });
     $("#topic-button").click(function () {
         var x = $("#wiki-topic").val();
@@ -24,4 +24,14 @@ $(document).ready(function () {
             console.log("Number of wikipedia pages to traverse: " + linkCount);
         }
     });
+});
+
+$(document).ready(function(){
+  $(".start-game").click(function(){
+    // This is to be changed once we know specific file path
+    var value = "Hello-World"
+    $("#wiki-text").text(value).show()
+    $("#inputs, #topic, #links").slideUp(5000);
+    $("#wiki-topic, #wiki-links").val("")
+  });
 });

@@ -3,9 +3,11 @@ import requests
 import numpy as np
 import bs4
 from transformers.pipelines import Pipeline, pipeline
+
     # Starting up pipeline
+    # Should do automatically upon starting program
     def start_pipeline() -> Pipeline:
-        """[summary]
+        """ Function for one time start of Transformers pipeline, will be run by default at the beginning of the program
 
         Returns:
             Pipeline: [description]
@@ -15,12 +17,12 @@ from transformers.pipelines import Pipeline, pipeline
 
     # Given a number letters and some sequence, returns the sequence with generated attached words
     def generate_text(generator: Pipeline, intro_sequence: str, num_words = 5) -> str:
-        """[summary]
+        """Generates a text sequence
 
         Args:
-            generator (Pipeline): [description]
-            intro_sequence (str): [description]
-            num_words (int, optional): [description]. Defaults to 5.
+            generator (Pipeline): An instance of the Transformers pipeline (HuggingFace implementation) used to generate words
+            intro_sequence (str): The initial text
+            num_words (int, optional): Number of words to be replaced. Defaults to 5.
 
         Returns:
             str: [description]
@@ -28,22 +30,6 @@ from transformers.pipelines import Pipeline, pipeline
         # Imported random text generation
         text = generator(intro_sequence, max_length=len(intro_sequence) + num_words, num_return_sequences=1)[0]
         return text.get('generated_text')
-
-    def get_text(url = "https://www.keepinspiring.me/famous-quotes/" ) -> bs4.ResultSet:
-        """[summary]
-
-        Args:
-            url (str, optional): [description]. Defaults to "https://www.keepinspiring.me/famous-quotes/".
-
-        Returns:
-            bs4.ResultSet: [description]
-        """
-        # Requesting data from url, finding specialized tags for this particular website
-        res = requests.get(url)
-        res.raise_for_status()
-        soup = bs4.BeautifulSoup(res.text, "html.parser")
-        text  = soup.find_all("div", class_ = 'author-quotes')
-        return text
 
 
     def replace_words_at_random(generator: Pipeline, word_arr: List[str], difficulty=1) -> Tuple[str, List[int]]:
