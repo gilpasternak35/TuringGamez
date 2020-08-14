@@ -36,7 +36,7 @@
 	<br>
 
 	<!--Styled section which loads the game -->
-	<div id='create-game' style='text-align: center; margin:0px auto; align-content: center'>
+	<!-- <div id='create-game' style='text-align: center; margin:0px auto; align-content: center'>
 		<div id="new-game-slider">
 			<h1>
 				<button id="start-game">
@@ -64,7 +64,41 @@
 					Start Game </button>
 			</div>
 		</div>
+	</div> -->
+
+	<!-- ATTEMPT WITH FORMS TO GENERATE HTTP REQUEST  -->
+	<div id='create-game' style='text-align: center; margin:0px auto; align-content: center'>
+		<div id="new-game-slider">
+			<h1>
+				<button id="start-game">
+					<span id="play" class="glyphicon glyphicon-play-circle"></span> New Game
+				</button>
+			</h1>
+		</div>
+	<form method="POST"> <!--Form that sends a post request to the current URL-->
+		<div hidden id="inputs">
+			<p style="color:white">Pick a Level:</p>
+			<select id="level" name="level">
+				<option value="1">Kiddy</option>
+				<option value="2">Medium</option>
+				<option value="3">Hard</option>
+				<option value="4">Impossible</option>
+			</select>
+			<div hidden id="artist">
+				<p>Please enter an artist name: </p>
+				<input id="artist-name" style='margin:0px auto; align-content: center'>
+				<button id="artist-button" type="Button" style='background-color:blue; color:white'> Submit </button>
+			</div>
+			<div hidden id="song">
+				<p>Please enter a song title:</p>
+				<input id="song-title" style='margin:0px auto; align-content: center'>
+				<button id="title-button" class='start-game' type="submit" style='background-color:blue; color:white'>
+					Start Game </button>
+			</div>
+		</div>
 	</div>
+</form>
+
 
 	<!-- This section contains displays all text content for any given run of the game -->
 	<br><br>

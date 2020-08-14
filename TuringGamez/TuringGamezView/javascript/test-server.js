@@ -22,19 +22,18 @@ app.listen(3000, () => console.log('App listening on port ${port}!'));*/
 
 const express = require('express');
 const app = express();
+const path = require('path')
 
-// Note on these 'app.use()': If you remove the one for ../ (aka TuringGamezView), we end
-// up with skeleton HTML code. If you use all 3 directories independently, same thing.
-// If you try to import just TuringGamezView, everything breaks. Only the combo of specifically
-// using the HTML **AND** the parent directory worked... for some reason.
-// TL;DR: this is dumb but it's the only way to make it work 
-app.use(express.static('../html'));
-// app.use(express.static('../assets'));
-// app.use(express.static('../javascript')); // Javascript files
-app.use(express.static('../')); //TuringGamezView/ directory
+
+const static_path = path.join(__dirname + '/..')
+console.log(static_path)
+app.use('/home/', express.static(static_path)); //TuringGamezView/ directory
 app.get('/', (req, res) => {
     // Default URL redirects to the main page of our program
-    res.redirect(`http://localhost:${port}/TuringGamez.html`);
+    //res.redirect(`http://localhost:${port}/TuringGamez.html`);
+    res.redirect(`http://localhost:${port}/home/html/TuringGamez.html`);
+    res.end();
+
 
     /*const {spawn} = require ('child_process');
     const pyProg = spawn('python', ['../../python/__main__.py', '-h']);
@@ -44,6 +43,11 @@ app.get('/', (req, res) => {
         res.write(data);
         res.end('end');
     });*/
+});
+
+app.post(/\w+/, (req, res) => {
+    console.log(`A post request occurred on: ${req.url}`)
+    console.log(`Request content: ${req.body}`)
 });
 
 

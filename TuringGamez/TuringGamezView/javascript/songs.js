@@ -9,7 +9,7 @@ $(document).ready(function () {
         if (x != "") {
             $("#song").show();
         } else {
-            alert('Please enter an artist name.');
+            //alert('Please enter an artist name.');
         }
     });
     $('#title-button').click(function () { // This function belongs in the controller
@@ -23,10 +23,10 @@ $(document).ready(function () {
             if(artist != "") {
                 $('#song-text').text(title).show();
             } else {
-                alert('Please resubmit a valid artist name.'); 
+                //alert('Please resubmit a valid artist name.'); 
             }
         } else {
-            alert('Please enter a song title.');
+            //alert('Please enter a song title.');
             
         }
     });
