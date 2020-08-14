@@ -46,6 +46,5 @@ $(document).ready(() => {
             'wiki-links': wikiLinkNum,
         });
         console.log(`JSON Packet: ${packet}`);
-
     });
 });

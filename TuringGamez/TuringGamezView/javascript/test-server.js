@@ -68,19 +68,3 @@ const liveServer = app.listen(port, () => console.log(`Server live on port ${por
 });
 */
 
-/* Example of what our http request body will likely look like. 
-This should contain all necessary data about our game (type, inputs, etc.)
-Json stuff: http-body
-{
-    'game-type': 'mad-libs-wiki',
-    'inputs':
-    {
-        'level': '..',
-        'song-title': '..',
-        'song-artist': '...',
-        'wiki-topic': '...',
-        'wiki-link-count': '...',
-        
-    }
-} */
-
