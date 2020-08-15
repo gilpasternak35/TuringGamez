@@ -46,5 +46,14 @@ $(document).ready(() => {
             'wiki-links': wikiLinkNum,
         });
         console.log(`JSON Packet: ${packet}`);
+
+        // Generate an HTTP POST request
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open('POST', document.URL);
+        httpRequest.responseType = 'json';
+        httpRequest.onreadystatechange = (e) => {
+            console.log(`Response: ${httpRequest.response}`)
+        };
+        httpRequest.send(packet);
     });
 });

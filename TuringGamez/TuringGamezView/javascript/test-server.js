@@ -47,7 +47,9 @@ app.get('/', (req, res) => {
 
 app.post(/\w+/, (req, res) => {
     console.log(`A post request occurred on: ${req.url}`)
-    console.log(`Request content: ${req.body}`)
+    console.log(`Content Type: ${req.get('Content-Type')}`)
+    res.write('Post received!')
+    res.end();
 });
 
 
