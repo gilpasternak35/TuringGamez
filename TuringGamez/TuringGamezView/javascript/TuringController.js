@@ -37,23 +37,51 @@ $(document).ready(() => {
         }
 
         // If none of the above, then it's a quote game. All inputs found. JSONify.  
-        packet = JSON.stringify({
+        const packet = {
             'game-type': gameType,
             'difficulty': difficultyLevel,
             'artist-name': artistName,
             'song-title': songTitle,
             'wiki-topic': wikiTopic,
             'wiki-links': wikiLinkNum,
-        });
-        console.log(`JSON Packet: ${packet}`);
+        };
+        console.log(JSON.stringify(packet));
+
 
         // Generate an HTTP POST request
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open('POST', document.URL);
-        httpRequest.responseType = 'json';
-        httpRequest.onreadystatechange = (e) => {
-            console.log(`Response: ${httpRequest.response}`)
-        };
-        httpRequest.send(packet);
+        // var httpRequest = new XMLHttpRequest();
+        // httpRequest.open('POST', document.URL);
+        // httpRequest.responseType = 'text';
+        // httpRequest.onreadystatechange = (e) => {
+        //     console.log(`Response: ${httpRequest.response}`);
+        // };
+        // httpRequest.send(packet);
+
+        // TODO: Attempt HTTP Post request using JQuery
+        $.post(document.URL,
+            packet,
+            (data, textStatus, jqXHR) => {
+                console.log('SUCces.');
+                console.log(`Data received: ${data}`);
+                console.log(`Text Status: ${textStatus}`);
+                console.log(`jQuery XHR:  ${jqXHR}`);
+            },
+            'json');
+        // $.ajax({
+        //     type: 'POST',
+        //     url: document.URL,
+        //     data: JSON.stringify({
+        //         'game-type': gameType,
+        //         'difficulty': difficultyLevel,
+        //         'artist-name': artistName,
+        //         'song-title': songTitle,
+        //         'wiki-topic': wikiTopic,
+        //         'wiki-links': wikiLinkNum,
+        //     }),
+        //     contentType: 'application/json; charset=utf-8',
+        //     dataType: 'json',
+        //     success: (data) => { console.log(data); },
+        //     error: (jqXHR, textStatus, errorThrown) => { console.log(jqXHR); alert(textStatus);alert(errorThrown); }
+        // });
     });
 });

@@ -22,11 +22,18 @@ app.listen(3000, () => console.log('App listening on port ${port}!'));*/
 
 const express = require('express');
 const app = express();
-const path = require('path')
+const path = require('path');
+
+/**
+ * Setup properties of the local server
+ */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
-const static_path = path.join(__dirname + '/..')
-console.log(static_path)
+
+const static_path = path.join(__dirname + '/..');
+console.log(static_path);
 app.use('/home/', express.static(static_path)); //TuringGamezView/ directory
 app.get('/', (req, res) => {
     // Default URL redirects to the main page of our program
@@ -46,9 +53,11 @@ app.get('/', (req, res) => {
 });
 
 app.post(/\w+/, (req, res) => {
-    console.log(`A post request occurred on: ${req.url}`)
-    console.log(`Content Type: ${req.get('Content-Type')}`)
-    res.write('Post received!')
+    console.log(`A post request occurred on: ${req.url}`);
+    console.log(`Content Type: ${req.get('Content-Type')}`);
+    console.log(`Request Body: ${req.body}`);
+    res.write(`Request Parameters: ${req.params}`);
+    res.write(`Request Body: ${req.body.params}`);
     res.end();
 });
 
